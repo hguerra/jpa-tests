@@ -1,0 +1,606 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPokemonLabel">Create or edit a Pokemon</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!pokemon.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="pokemon.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_abilities">Abilities</label>
+            <input type="text" class="form-control" name="abilities" id="field_abilities"
+                [(ngModel)]="pokemon.abilities" required maxlength="89"/>
+            <div [hidden]="!(editForm.controls.abilities?.dirty && editForm.controls.abilities?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.abilities?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.abilities?.errors?.maxlength">
+                   This field cannot be longer than 89 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstBug">Against Bug</label>
+            <input type="number" class="form-control" name="againstBug" id="field_againstBug"
+                [(ngModel)]="pokemon.againstBug" required/>
+            <div [hidden]="!(editForm.controls.againstBug?.dirty && editForm.controls.againstBug?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstBug?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstBug?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstDark">Against Dark</label>
+            <input type="number" class="form-control" name="againstDark" id="field_againstDark"
+                [(ngModel)]="pokemon.againstDark" required/>
+            <div [hidden]="!(editForm.controls.againstDark?.dirty && editForm.controls.againstDark?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstDark?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstDark?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstDragon">Against Dragon</label>
+            <input type="number" class="form-control" name="againstDragon" id="field_againstDragon"
+                [(ngModel)]="pokemon.againstDragon" required/>
+            <div [hidden]="!(editForm.controls.againstDragon?.dirty && editForm.controls.againstDragon?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstDragon?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstDragon?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstElectric">Against Electric</label>
+            <input type="number" class="form-control" name="againstElectric" id="field_againstElectric"
+                [(ngModel)]="pokemon.againstElectric" required/>
+            <div [hidden]="!(editForm.controls.againstElectric?.dirty && editForm.controls.againstElectric?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstElectric?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstElectric?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstFairy">Against Fairy</label>
+            <input type="number" class="form-control" name="againstFairy" id="field_againstFairy"
+                [(ngModel)]="pokemon.againstFairy" required/>
+            <div [hidden]="!(editForm.controls.againstFairy?.dirty && editForm.controls.againstFairy?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstFairy?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstFairy?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstFight">Against Fight</label>
+            <input type="number" class="form-control" name="againstFight" id="field_againstFight"
+                [(ngModel)]="pokemon.againstFight" required/>
+            <div [hidden]="!(editForm.controls.againstFight?.dirty && editForm.controls.againstFight?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstFight?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstFight?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstFire">Against Fire</label>
+            <input type="number" class="form-control" name="againstFire" id="field_againstFire"
+                [(ngModel)]="pokemon.againstFire" required/>
+            <div [hidden]="!(editForm.controls.againstFire?.dirty && editForm.controls.againstFire?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstFire?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstFire?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstFlying">Against Flying</label>
+            <input type="number" class="form-control" name="againstFlying" id="field_againstFlying"
+                [(ngModel)]="pokemon.againstFlying" required/>
+            <div [hidden]="!(editForm.controls.againstFlying?.dirty && editForm.controls.againstFlying?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstFlying?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstFlying?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstGhost">Against Ghost</label>
+            <input type="number" class="form-control" name="againstGhost" id="field_againstGhost"
+                [(ngModel)]="pokemon.againstGhost" required/>
+            <div [hidden]="!(editForm.controls.againstGhost?.dirty && editForm.controls.againstGhost?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstGhost?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstGhost?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstGrass">Against Grass</label>
+            <input type="number" class="form-control" name="againstGrass" id="field_againstGrass"
+                [(ngModel)]="pokemon.againstGrass" required/>
+            <div [hidden]="!(editForm.controls.againstGrass?.dirty && editForm.controls.againstGrass?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstGrass?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstGrass?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstGround">Against Ground</label>
+            <input type="number" class="form-control" name="againstGround" id="field_againstGround"
+                [(ngModel)]="pokemon.againstGround" required/>
+            <div [hidden]="!(editForm.controls.againstGround?.dirty && editForm.controls.againstGround?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstGround?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstGround?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstIce">Against Ice</label>
+            <input type="number" class="form-control" name="againstIce" id="field_againstIce"
+                [(ngModel)]="pokemon.againstIce" required/>
+            <div [hidden]="!(editForm.controls.againstIce?.dirty && editForm.controls.againstIce?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstIce?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstIce?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstNormal">Against Normal</label>
+            <input type="number" class="form-control" name="againstNormal" id="field_againstNormal"
+                [(ngModel)]="pokemon.againstNormal" required/>
+            <div [hidden]="!(editForm.controls.againstNormal?.dirty && editForm.controls.againstNormal?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstNormal?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstNormal?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstPoison">Against Poison</label>
+            <input type="number" class="form-control" name="againstPoison" id="field_againstPoison"
+                [(ngModel)]="pokemon.againstPoison" required/>
+            <div [hidden]="!(editForm.controls.againstPoison?.dirty && editForm.controls.againstPoison?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstPoison?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstPoison?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstPsychic">Against Psychic</label>
+            <input type="number" class="form-control" name="againstPsychic" id="field_againstPsychic"
+                [(ngModel)]="pokemon.againstPsychic" required/>
+            <div [hidden]="!(editForm.controls.againstPsychic?.dirty && editForm.controls.againstPsychic?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstPsychic?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstPsychic?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstRock">Against Rock</label>
+            <input type="number" class="form-control" name="againstRock" id="field_againstRock"
+                [(ngModel)]="pokemon.againstRock" required/>
+            <div [hidden]="!(editForm.controls.againstRock?.dirty && editForm.controls.againstRock?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstRock?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstRock?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstSteel">Against Steel</label>
+            <input type="number" class="form-control" name="againstSteel" id="field_againstSteel"
+                [(ngModel)]="pokemon.againstSteel" required/>
+            <div [hidden]="!(editForm.controls.againstSteel?.dirty && editForm.controls.againstSteel?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstSteel?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstSteel?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_againstWater">Against Water</label>
+            <input type="number" class="form-control" name="againstWater" id="field_againstWater"
+                [(ngModel)]="pokemon.againstWater" required/>
+            <div [hidden]="!(editForm.controls.againstWater?.dirty && editForm.controls.againstWater?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.againstWater?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.againstWater?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_attack">Attack</label>
+            <input type="number" class="form-control" name="attack" id="field_attack"
+                [(ngModel)]="pokemon.attack" required/>
+            <div [hidden]="!(editForm.controls.attack?.dirty && editForm.controls.attack?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.attack?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.attack?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_baseEggSteps">Base Egg Steps</label>
+            <input type="number" class="form-control" name="baseEggSteps" id="field_baseEggSteps"
+                [(ngModel)]="pokemon.baseEggSteps" required/>
+            <div [hidden]="!(editForm.controls.baseEggSteps?.dirty && editForm.controls.baseEggSteps?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.baseEggSteps?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.baseEggSteps?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_baseHappiness">Base Happiness</label>
+            <input type="number" class="form-control" name="baseHappiness" id="field_baseHappiness"
+                [(ngModel)]="pokemon.baseHappiness" required/>
+            <div [hidden]="!(editForm.controls.baseHappiness?.dirty && editForm.controls.baseHappiness?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.baseHappiness?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.baseHappiness?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_baseTotal">Base Total</label>
+            <input type="number" class="form-control" name="baseTotal" id="field_baseTotal"
+                [(ngModel)]="pokemon.baseTotal" required/>
+            <div [hidden]="!(editForm.controls.baseTotal?.dirty && editForm.controls.baseTotal?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.baseTotal?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.baseTotal?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_captureRate">Capture Rate</label>
+            <input type="text" class="form-control" name="captureRate" id="field_captureRate"
+                [(ngModel)]="pokemon.captureRate" required maxlength="24"/>
+            <div [hidden]="!(editForm.controls.captureRate?.dirty && editForm.controls.captureRate?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.captureRate?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.captureRate?.errors?.maxlength">
+                   This field cannot be longer than 24 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_classfication">Classfication</label>
+            <input type="text" class="form-control" name="classfication" id="field_classfication"
+                [(ngModel)]="pokemon.classfication" required maxlength="51"/>
+            <div [hidden]="!(editForm.controls.classfication?.dirty && editForm.controls.classfication?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.classfication?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.classfication?.errors?.maxlength">
+                   This field cannot be longer than 51 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_defense">Defense</label>
+            <input type="number" class="form-control" name="defense" id="field_defense"
+                [(ngModel)]="pokemon.defense" required/>
+            <div [hidden]="!(editForm.controls.defense?.dirty && editForm.controls.defense?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.defense?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.defense?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_experienceGrowth">Experience Growth</label>
+            <input type="number" class="form-control" name="experienceGrowth" id="field_experienceGrowth"
+                [(ngModel)]="pokemon.experienceGrowth" required/>
+            <div [hidden]="!(editForm.controls.experienceGrowth?.dirty && editForm.controls.experienceGrowth?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.experienceGrowth?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.experienceGrowth?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_heightM">Height M</label>
+            <input type="number" class="form-control" name="heightM" id="field_heightM"
+                [(ngModel)]="pokemon.heightM" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_hp">Hp</label>
+            <input type="number" class="form-control" name="hp" id="field_hp"
+                [(ngModel)]="pokemon.hp" required/>
+            <div [hidden]="!(editForm.controls.hp?.dirty && editForm.controls.hp?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.hp?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.hp?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_japaneseName">Japanese Name</label>
+            <input type="text" class="form-control" name="japaneseName" id="field_japaneseName"
+                [(ngModel)]="pokemon.japaneseName" required maxlength="33"/>
+            <div [hidden]="!(editForm.controls.japaneseName?.dirty && editForm.controls.japaneseName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.japaneseName?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.japaneseName?.errors?.maxlength">
+                   This field cannot be longer than 33 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="pokemon.name" required maxlength="12"/>
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.maxlength">
+                   This field cannot be longer than 12 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_percentageMale">Percentage Male</label>
+            <input type="number" class="form-control" name="percentageMale" id="field_percentageMale"
+                [(ngModel)]="pokemon.percentageMale" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_pokedexNumber">Pokedex Number</label>
+            <input type="number" class="form-control" name="pokedexNumber" id="field_pokedexNumber"
+                [(ngModel)]="pokemon.pokedexNumber" required/>
+            <div [hidden]="!(editForm.controls.pokedexNumber?.dirty && editForm.controls.pokedexNumber?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.pokedexNumber?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.pokedexNumber?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_spAttack">Sp Attack</label>
+            <input type="number" class="form-control" name="spAttack" id="field_spAttack"
+                [(ngModel)]="pokemon.spAttack" required/>
+            <div [hidden]="!(editForm.controls.spAttack?.dirty && editForm.controls.spAttack?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.spAttack?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.spAttack?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_spDefense">Sp Defense</label>
+            <input type="number" class="form-control" name="spDefense" id="field_spDefense"
+                [(ngModel)]="pokemon.spDefense" required/>
+            <div [hidden]="!(editForm.controls.spDefense?.dirty && editForm.controls.spDefense?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.spDefense?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.spDefense?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_speed">Speed</label>
+            <input type="number" class="form-control" name="speed" id="field_speed"
+                [(ngModel)]="pokemon.speed" required/>
+            <div [hidden]="!(editForm.controls.speed?.dirty && editForm.controls.speed?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.speed?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.speed?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_type1">Type 1</label>
+            <input type="text" class="form-control" name="type1" id="field_type1"
+                [(ngModel)]="pokemon.type1" required maxlength="8"/>
+            <div [hidden]="!(editForm.controls.type1?.dirty && editForm.controls.type1?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.type1?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.type1?.errors?.maxlength">
+                   This field cannot be longer than 8 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_type2">Type 2</label>
+            <input type="text" class="form-control" name="type2" id="field_type2"
+                [(ngModel)]="pokemon.type2" maxlength="8"/>
+            <div [hidden]="!(editForm.controls.type2?.dirty && editForm.controls.type2?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.type2?.errors?.maxlength">
+                   This field cannot be longer than 8 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_weightKg">Weight Kg</label>
+            <input type="number" class="form-control" name="weightKg" id="field_weightKg"
+                [(ngModel)]="pokemon.weightKg" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_generation">Generation</label>
+            <input type="number" class="form-control" name="generation" id="field_generation"
+                [(ngModel)]="pokemon.generation" required/>
+            <div [hidden]="!(editForm.controls.generation?.dirty && editForm.controls.generation?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.generation?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.generation?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" for="field_isLegendary">Is Legendary</label>
+            <input type="number" class="form-control" name="isLegendary" id="field_isLegendary"
+                [(ngModel)]="pokemon.isLegendary" required/>
+            <div [hidden]="!(editForm.controls.isLegendary?.dirty && editForm.controls.isLegendary?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.isLegendary?.errors?.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.isLegendary?.errors?.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

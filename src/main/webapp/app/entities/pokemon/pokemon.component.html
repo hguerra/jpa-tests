@@ -1,0 +1,146 @@
+<div>
+    <h2>
+        <span>Pokemons</span>
+        <button class="btn btn-primary float-right jh-create-entity create-pokemon" [routerLink]="['/', { outlets: { popup: ['pokemon-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Pokemon
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="pokemons">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="abilities"><span>Abilities</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstBug"><span>Against Bug</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstDark"><span>Against Dark</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstDragon"><span>Against Dragon</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstElectric"><span>Against Electric</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstFairy"><span>Against Fairy</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstFight"><span>Against Fight</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstFire"><span>Against Fire</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstFlying"><span>Against Flying</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstGhost"><span>Against Ghost</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstGrass"><span>Against Grass</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstGround"><span>Against Ground</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstIce"><span>Against Ice</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstNormal"><span>Against Normal</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstPoison"><span>Against Poison</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstPsychic"><span>Against Psychic</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstRock"><span>Against Rock</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstSteel"><span>Against Steel</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="againstWater"><span>Against Water</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="attack"><span>Attack</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="baseEggSteps"><span>Base Egg Steps</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="baseHappiness"><span>Base Happiness</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="baseTotal"><span>Base Total</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="captureRate"><span>Capture Rate</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="classfication"><span>Classfication</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="defense"><span>Defense</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="experienceGrowth"><span>Experience Growth</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="heightM"><span>Height M</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="hp"><span>Hp</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="japaneseName"><span>Japanese Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="name"><span>Name</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="percentageMale"><span>Percentage Male</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pokedexNumber"><span>Pokedex Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="spAttack"><span>Sp Attack</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="spDefense"><span>Sp Defense</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="speed"><span>Speed</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="type1"><span>Type 1</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="type2"><span>Type 2</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="weightKg"><span>Weight Kg</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="generation"><span>Generation</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isLegendary"><span>Is Legendary</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pokemon of pokemons ;trackBy: trackId">
+                <td><a [routerLink]="['../pokemon', pokemon.id ]">{{pokemon.id}}</a></td>
+                <td>{{pokemon.abilities}}</td>
+                <td>{{pokemon.againstBug}}</td>
+                <td>{{pokemon.againstDark}}</td>
+                <td>{{pokemon.againstDragon}}</td>
+                <td>{{pokemon.againstElectric}}</td>
+                <td>{{pokemon.againstFairy}}</td>
+                <td>{{pokemon.againstFight}}</td>
+                <td>{{pokemon.againstFire}}</td>
+                <td>{{pokemon.againstFlying}}</td>
+                <td>{{pokemon.againstGhost}}</td>
+                <td>{{pokemon.againstGrass}}</td>
+                <td>{{pokemon.againstGround}}</td>
+                <td>{{pokemon.againstIce}}</td>
+                <td>{{pokemon.againstNormal}}</td>
+                <td>{{pokemon.againstPoison}}</td>
+                <td>{{pokemon.againstPsychic}}</td>
+                <td>{{pokemon.againstRock}}</td>
+                <td>{{pokemon.againstSteel}}</td>
+                <td>{{pokemon.againstWater}}</td>
+                <td>{{pokemon.attack}}</td>
+                <td>{{pokemon.baseEggSteps}}</td>
+                <td>{{pokemon.baseHappiness}}</td>
+                <td>{{pokemon.baseTotal}}</td>
+                <td>{{pokemon.captureRate}}</td>
+                <td>{{pokemon.classfication}}</td>
+                <td>{{pokemon.defense}}</td>
+                <td>{{pokemon.experienceGrowth}}</td>
+                <td>{{pokemon.heightM}}</td>
+                <td>{{pokemon.hp}}</td>
+                <td>{{pokemon.japaneseName}}</td>
+                <td>{{pokemon.name}}</td>
+                <td>{{pokemon.percentageMale}}</td>
+                <td>{{pokemon.pokedexNumber}}</td>
+                <td>{{pokemon.spAttack}}</td>
+                <td>{{pokemon.spDefense}}</td>
+                <td>{{pokemon.speed}}</td>
+                <td>{{pokemon.type1}}</td>
+                <td>{{pokemon.type2}}</td>
+                <td>{{pokemon.weightKg}}</td>
+                <td>{{pokemon.generation}}</td>
+                <td>{{pokemon.isLegendary}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../pokemon', pokemon.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'pokemon/'+ pokemon.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'pokemon/'+ pokemon.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="pokemons && pokemons.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

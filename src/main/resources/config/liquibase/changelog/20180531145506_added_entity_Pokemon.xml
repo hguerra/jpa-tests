@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Pokemon.
+    -->
+    <changeSet id="20180531145506-1" author="jhipster">
+        <createTable tableName="pokemon">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="abilities" type="varchar(89)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_bug" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_dark" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_dragon" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_electric" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_fairy" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_fight" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_fire" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_flying" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_ghost" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_grass" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_ground" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_ice" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_normal" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_poison" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_psychic" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_rock" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_steel" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="against_water" type="${floatType}">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="attack" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="base_egg_steps" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="base_happiness" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="base_total" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="capture_rate" type="varchar(24)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="classfication" type="varchar(51)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="defense" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="experience_growth" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="height_m" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="hp" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="japanese_name" type="varchar(33)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="name" type="varchar(12)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="percentage_male" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="pokedex_number" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="sp_attack" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="sp_defense" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="speed" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="type_1" type="varchar(8)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="type_2" type="varchar(8)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="weight_kg" type="${floatType}">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="generation" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="is_legendary" type="integer">
+                <constraints nullable="false" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

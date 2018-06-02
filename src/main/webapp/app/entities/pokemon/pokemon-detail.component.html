@@ -1,0 +1,186 @@
+
+<div *ngIf="pokemon">
+    <h2><span>Pokemon</span> {{pokemon.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Abilities</span></dt>
+        <dd>
+            <span>{{pokemon.abilities}}</span>
+        </dd>
+        <dt><span>Against Bug</span></dt>
+        <dd>
+            <span>{{pokemon.againstBug}}</span>
+        </dd>
+        <dt><span>Against Dark</span></dt>
+        <dd>
+            <span>{{pokemon.againstDark}}</span>
+        </dd>
+        <dt><span>Against Dragon</span></dt>
+        <dd>
+            <span>{{pokemon.againstDragon}}</span>
+        </dd>
+        <dt><span>Against Electric</span></dt>
+        <dd>
+            <span>{{pokemon.againstElectric}}</span>
+        </dd>
+        <dt><span>Against Fairy</span></dt>
+        <dd>
+            <span>{{pokemon.againstFairy}}</span>
+        </dd>
+        <dt><span>Against Fight</span></dt>
+        <dd>
+            <span>{{pokemon.againstFight}}</span>
+        </dd>
+        <dt><span>Against Fire</span></dt>
+        <dd>
+            <span>{{pokemon.againstFire}}</span>
+        </dd>
+        <dt><span>Against Flying</span></dt>
+        <dd>
+            <span>{{pokemon.againstFlying}}</span>
+        </dd>
+        <dt><span>Against Ghost</span></dt>
+        <dd>
+            <span>{{pokemon.againstGhost}}</span>
+        </dd>
+        <dt><span>Against Grass</span></dt>
+        <dd>
+            <span>{{pokemon.againstGrass}}</span>
+        </dd>
+        <dt><span>Against Ground</span></dt>
+        <dd>
+            <span>{{pokemon.againstGround}}</span>
+        </dd>
+        <dt><span>Against Ice</span></dt>
+        <dd>
+            <span>{{pokemon.againstIce}}</span>
+        </dd>
+        <dt><span>Against Normal</span></dt>
+        <dd>
+            <span>{{pokemon.againstNormal}}</span>
+        </dd>
+        <dt><span>Against Poison</span></dt>
+        <dd>
+            <span>{{pokemon.againstPoison}}</span>
+        </dd>
+        <dt><span>Against Psychic</span></dt>
+        <dd>
+            <span>{{pokemon.againstPsychic}}</span>
+        </dd>
+        <dt><span>Against Rock</span></dt>
+        <dd>
+            <span>{{pokemon.againstRock}}</span>
+        </dd>
+        <dt><span>Against Steel</span></dt>
+        <dd>
+            <span>{{pokemon.againstSteel}}</span>
+        </dd>
+        <dt><span>Against Water</span></dt>
+        <dd>
+            <span>{{pokemon.againstWater}}</span>
+        </dd>
+        <dt><span>Attack</span></dt>
+        <dd>
+            <span>{{pokemon.attack}}</span>
+        </dd>
+        <dt><span>Base Egg Steps</span></dt>
+        <dd>
+            <span>{{pokemon.baseEggSteps}}</span>
+        </dd>
+        <dt><span>Base Happiness</span></dt>
+        <dd>
+            <span>{{pokemon.baseHappiness}}</span>
+        </dd>
+        <dt><span>Base Total</span></dt>
+        <dd>
+            <span>{{pokemon.baseTotal}}</span>
+        </dd>
+        <dt><span>Capture Rate</span></dt>
+        <dd>
+            <span>{{pokemon.captureRate}}</span>
+        </dd>
+        <dt><span>Classfication</span></dt>
+        <dd>
+            <span>{{pokemon.classfication}}</span>
+        </dd>
+        <dt><span>Defense</span></dt>
+        <dd>
+            <span>{{pokemon.defense}}</span>
+        </dd>
+        <dt><span>Experience Growth</span></dt>
+        <dd>
+            <span>{{pokemon.experienceGrowth}}</span>
+        </dd>
+        <dt><span>Height M</span></dt>
+        <dd>
+            <span>{{pokemon.heightM}}</span>
+        </dd>
+        <dt><span>Hp</span></dt>
+        <dd>
+            <span>{{pokemon.hp}}</span>
+        </dd>
+        <dt><span>Japanese Name</span></dt>
+        <dd>
+            <span>{{pokemon.japaneseName}}</span>
+        </dd>
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{pokemon.name}}</span>
+        </dd>
+        <dt><span>Percentage Male</span></dt>
+        <dd>
+            <span>{{pokemon.percentageMale}}</span>
+        </dd>
+        <dt><span>Pokedex Number</span></dt>
+        <dd>
+            <span>{{pokemon.pokedexNumber}}</span>
+        </dd>
+        <dt><span>Sp Attack</span></dt>
+        <dd>
+            <span>{{pokemon.spAttack}}</span>
+        </dd>
+        <dt><span>Sp Defense</span></dt>
+        <dd>
+            <span>{{pokemon.spDefense}}</span>
+        </dd>
+        <dt><span>Speed</span></dt>
+        <dd>
+            <span>{{pokemon.speed}}</span>
+        </dd>
+        <dt><span>Type 1</span></dt>
+        <dd>
+            <span>{{pokemon.type1}}</span>
+        </dd>
+        <dt><span>Type 2</span></dt>
+        <dd>
+            <span>{{pokemon.type2}}</span>
+        </dd>
+        <dt><span>Weight Kg</span></dt>
+        <dd>
+            <span>{{pokemon.weightKg}}</span>
+        </dd>
+        <dt><span>Generation</span></dt>
+        <dd>
+            <span>{{pokemon.generation}}</span>
+        </dd>
+        <dt><span>Is Legendary</span></dt>
+        <dd>
+            <span>{{pokemon.isLegendary}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'pokemon/'+ pokemon.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

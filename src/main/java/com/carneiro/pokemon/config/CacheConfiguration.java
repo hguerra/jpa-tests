@@ -38,6 +38,7 @@ public class CacheConfiguration {
             cm.createCache(com.carneiro.pokemon.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.carneiro.pokemon.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.carneiro.pokemon.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.carneiro.pokemon.domain.Pokemon.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

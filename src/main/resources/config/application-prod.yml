@@ -27,7 +27,7 @@ spring:
             enabled: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:postgresql://localhost:5432/pokemon
+        url: jdbc:postgresql://192.168.99.100:5432/pokemon
         username: pokemon
         password:
     jpa:
